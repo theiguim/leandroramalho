@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     gsap.fromTo(".main-img", 
         { clipPath: "inset(0% 0% 0% 0%)" }, // Começa sem cortes
-        { clipPath: "inset(0% 50% 0% 50%)", // Fecha dos lados para o centro sem alterar a altura
+        { clipPath: "inset(0% 100% 0% 0%)", // Fecha dos lados para o centro sem alterar a altura
           scrollTrigger: {
               trigger: ".main-img",
               start: "top top",
