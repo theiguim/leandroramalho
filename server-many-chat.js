@@ -6,20 +6,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const API_TOKEN = "7369265:11246be568a69ea784591ac605b8cbe1";
+const API_TOKEN = "2489155:2716:51925ad64eb9c3bf510d3aa3beb87fe2061f7cc9";
 
-// Função para formatar número no padrão E.164
-const formatPhoneNumber = (phone) => {
-    return `+${phone.replace(/\D/g, "")}`;
-};
 
 const createSubscriber = async (phone, name) => {
     try {
-        const formattedPhone = formatPhoneNumber(phone);
 
         const response = await axios.post(
             "https://api.manychat.com/fb/subscriber/createSubscriber",
-            { phone: formattedPhone, name },
+            {
+                whatsapp_phone: phone,
+                first_name: name,
+                consent_phrase: "O usuário consentiu em receber mensagens pelo WhatsApp através do formulário."
+            },
             {
                 headers: {
                     "Authorization": `Bearer ${API_TOKEN}`,
@@ -41,14 +40,40 @@ const sendMessage = async (subscriberId, message) => {
         await axios.post(
             "https://api.manychat.com/fb/sending/sendContent",
             {
-                subscriber_id: subscriberId,
-                message_tag: "CONFIRMED_EVENT_UPDATE",
-                content: { messages: [{ type: "text", text: message }] }
+                "subscriber_id": subscriberId,
+                "data": {
+                    "version": "v2",
+                    "content": {
+                        "type": "whatsapp_template",
+                        "template_name": "welcome_message",
+                        "language": {
+                            "policy": "deterministic",
+                            "code": "pt_BR"
+                        },
+                        "components": [
+                            {
+                                "type": "body",
+                                "parameters": [
+                                    {
+                                        "type": "text",
+                                        // nome
+                                        "text": "João" 
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
             },
-            { headers: { "Authorization": `Bearer ${API_TOKEN}`, "Content-Type": "application/json" } }
+            {
+                headers: {
+                    "Authorization": `Bearer ${API_TOKEN}`,
+                    "Content-Type": "application/json"
+                }
+            }
         );
     } catch (error) {
-        console.error("Erro ao enviar mensagem:", error.response?.data || error.message);
+        console.error("Erro ao enviar mensagem:", error);
     }
 };
 
