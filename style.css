@@ -15,6 +15,13 @@ body {
 
     width: 100vw;
     overflow-x: hidden;
+
+    background: linear-gradient(to right, #0b3957c7, #0b3957a8),
+        url('interior-design-old-architecture.jpg') no-repeat center/cover;
+
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
 }
 
 section {
@@ -22,22 +29,23 @@ section {
 }
 
 .main {
-    background: linear-gradient(to right, #0b3957c7, #0b3957a8),
-        url('interior-design-old-architecture.jpg') no-repeat center/cover;
+
+
+    width: 100vw;
+    overflow-x: hidden;
 
     position: relative;
 
 }
 
 .background-shadow {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+    height: 100vh;
     background: linear-gradient(to bottom, #00000000, #000000);
-    z-index: 2;
-
 }
 
 .main-content {
@@ -115,19 +123,27 @@ form input {
     background-color: rgba(255, 255, 255, 0.616);
 }
 
-label{
+input::placeholder {
+    color: black; /* Altere para a cor desejada */
+    opacity: 1; /* Garante que a cor seja aplicada corretamente */
+  }
+
+label {
     display: flex;
+    align-items: center;
     gap: 5px;
 }
-label>input{
-width: auto;
+
+label>input {
+    width: auto;
 }
-label>span{
+
+label>span {
     font-size: 13px;
 }
-    
+
 .main-img {
-    width: 500px;
+    min-width: 600px;
     /* Largura fixa */
     height: 100vh;
 
@@ -137,21 +153,14 @@ label>span{
     align-items: end;
     justify-content: end;
 
-    background-image: url(_LLF8659-Photoroom.png);
-    background-position: top;
-    background-size: 120%;
+    background-image: url(images/main.png);
+    background-position: center;
+    background-size: contain;
     background-repeat: no-repeat;
 
     overflow-x: hidden;
 }
 
-/* .main-img img {
-    width: 400px; 
-    height: 100%; 
-    object-fit: contain;
-    object-position: auto 50%;
-   
-} */
 
 button {
     background-color: rgb(255, 159, 49);
@@ -174,20 +183,174 @@ button:hover {
     transform: scale(1.04);
 }
 
+.gallery {
+    width: 100vw;
+    overflow-x: hidden;
+    padding: 100px 0;
+    height: auto;
+
+    z-index: 100;
+}
+
+.gallery-container {
+    align-items: center;
+    display: flex;
+    height: 360px;
+    /* Aumento de 20% */
+    margin: 0 auto;
+    max-width: 720px;
+    /* Aumento de 20% */
+    position: relative;
+
+}
+
+.gallery-item {
+    height: 252px;
+    /* Aumento de 20% */
+    opacity: 0;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    width: 237.6px;
+    /* Aumento de 20% */
+    z-index: 0;
+    border-radius: 15px;
+    background-size: contain;
+}
+
+.gallery-item-1 {
+    left: 15%;
+    opacity: .4;
+    transform: translateX(-50%);
+}
+
+.gallery-item-2,
+.gallery-item-4 {
+    height: 252px;
+    /* Aumento de 20% */
+    opacity: 0.8;
+    width: 273.6px;
+    /* Aumento de 20% */
+    z-index: 1;
+}
+
+.gallery-item-2 {
+    left: 30%;
+    transform: translateX(-50%);
+}
+
+.gallery-item-3 {
+    box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.041);
+    height: 324px;
+    /* Aumento de 20% */
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 309.6px;
+    /* Aumento de 20% */
+    z-index: 2;
+}
+
+.gallery-item-4 {
+    left: 70%;
+    transform: translateX(-50%);
+}
+
+.gallery-item-5 {
+    left: 85%;
+    opacity: .4;
+    transform: translateX(-50%);
+}
+
+.gallery-controls {
+    display: flex;
+    justify-content: center;
+    margin: 18px 0;
+    /* Aumento de 20% */
+    height: 72px;
+    /* Aumento de 20% */
+    z-index: 100;
+}
+
+/* Estilização dos botões */
+.gallery-controls>button {
+    box-shadow: none;
+    background-color: #33333300;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background 0.3s ease-in-out;
+
+    z-index: 100 !important;
+}
+
+/* Efeito ao passar o mouse */
+.gallery-controls button:hover {
+    background-color: #55555500;
+}
+
+/* Nav */
+.gallery-nav {
+    bottom: -12px;
+    /* Aumento de 20% */
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.gallery-nav li {
+    background-color: #ccc;
+    border-radius: 50%;
+    height: 7.2px;
+    /* Aumento de 20% */
+    margin: 0 12px;
+    /* Aumento de 20% */
+    width: 7.2px;
+    /* Aumento de 20% */
+}
+
+.gallery-nav li.gallery-item-selected {
+    background-color: #555;
+}
+
+
 .about {
     background-color: black;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
+    align-items: center;
     width: 100vw;
     height: auto;
     padding: 100px 0;
+
+    background-color: black;
+}
+
+.about-img {
+
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+
+.about-img img {
+    width: 200px;
+    z-index: 10;
 }
 
 .about-txt {
     max-width: 600px;
+
     position: relative;
-    margin: 0 auto;
+    /* margin: ; */
+    z-index: 3;
 }
 
 .about-txt p {
@@ -202,15 +365,44 @@ button:hover {
     transform-origin: left;
 }
 
-@media (max-width: 965px) {
-    button {
+@media(max-width: 1146px) {
+    form button {
         font-size: 20px;
+    }
+}
+
+@media(max-width: 1074px) {
+    .main-img {
+        min-width: 500px;
+        background-position: bottom;
+    }
+
+
+}
+
+@media (max-width: 965px) {
+   form button {
+        font-size: 19px;
+    }
+
+    .main-txt {
+        min-width: 400px !important;
     }
 
     .main-img {
-        background-position: bottom;
-
+        overflow-x: hidden;
     }
+
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    .main-txt h1 {
+        font-size: 35px;
+    }
+
 }
 
 @media(max-width: 810px) {
@@ -222,12 +414,14 @@ button:hover {
 
     .main-img {
         background-position: top;
+        height: 50vh;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.377);
     }
 
     .main-content {
         width: 100%;
-        flex-direction: column;
-        justify-content: space-between;
+        flex-direction: column-reverse;
+        justify-content: start;
         align-items: center;
         align-content: center;
         max-width: 100vw;
@@ -241,12 +435,16 @@ button:hover {
         align-content: center;
         text-align: center;
         margin: 0;
-        margin-top: 10px;
+        margin-top: 0;
 
     }
 
     form {
         align-items: center;
+    }
+
+    .about img{
+        display: none;
     }
 }
 
@@ -275,6 +473,11 @@ button:hover {
 }
 
 @media(max-width: 450px) {
+    .main-img {
+        background-position: top;
+        height: 40vh;
+        margin-top: -50px;
+    }
     .main-txt {
         width: 90vw;
     }
@@ -295,6 +498,11 @@ button:hover {
 
     .main-img {
         width: 350px;
+    }
+
+    form label span{
+        font-size: 10px;
+        text-align: left;
     }
 
     button {

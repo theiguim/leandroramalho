@@ -16,11 +16,10 @@
 </head>
 
 <body>
-
+    <div class="background-shadow"></div>
     <section class="main">
         <div class="main-content">
-
-            <div class="background-shadow"></div>
+            
             <div class="main-txt">
                 <h2>11 a 13 de Março | às 19h30 | GRATUITO E AO VIVO</h2>
                 <h1>Garanta <span class="color2">que seu</span> <span>filho</span> <br> <span class="color3">não
@@ -33,12 +32,12 @@
                     <input required placeholder="DDD + WhatsApp" name="PHONE" type="text" id="PHONE">
 
                     <label>
-                        
-                        <input type="checkbox" name="subscribe" style="margin-left: 10px;">
-                       <span>Autorizo receber futuras notificações do evento nas vias informadas</span>
-                      </label>
 
-                    
+                        <input type="checkbox" name="subscribe" style="margin-left: 10px;" required>
+                        <span>Autorizo receber futuras notificações do evento nas vias informadas</span>
+                    </label>
+
+
                     <button type="submit">Quero minha inscrição gratuita</button>
                 </form>
             </div>
@@ -57,9 +56,37 @@
 
     </section>
 
+    <section class="gallery">
+        <div class="gallery-container">
+            <img class="gallery-item gallery-item-1" src="images/3.png" data-index="1"
+                alt="cliente feedback">
+
+            <img class="gallery-item gallery-item-2" src="images/4.png" data-index="2"
+                alt="cliente feedback">
+
+            <img class="gallery-item gallery-item-3" src="images/5.png" data-index="3"
+                alt="cliente feedback">
+
+            <img class="gallery-item gallery-item-4" src="images/3.png" data-index="4"
+                alt="cliente feedback">
+
+            <img class="gallery-item gallery-item-5" src="images/4.png" data-index="5"
+                alt="cliente feedback">
+        </div>
+
+        <div class="gallery-controls">
+            <button id="prevButton">←</button>
+            <button id="nextButton">→</button>
+        </div>
+
+
+    </section>
 
 
     <section class="about">
+       <div class="about-img">
+        <img src="images/avatar.png" alt="">
+       </div>
         <div class="about-txt">
             <h1><span>Quem é o</span> <br> Dr. Leandro Ramalho?</h1>
             <div class="line"></div>
