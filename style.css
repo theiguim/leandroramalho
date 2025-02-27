@@ -115,8 +115,17 @@ form input {
     background-color: rgba(255, 255, 255, 0.616);
 }
 
-
-
+label{
+    display: flex;
+    gap: 5px;
+}
+label>input{
+width: auto;
+}
+label>span{
+    font-size: 13px;
+}
+    
 .main-img {
     width: 500px;
     /* Largura fixa */
