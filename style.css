@@ -189,6 +189,7 @@ button:hover {
     height: auto;
     padding: 100px 0;
     width: 80vw;
+    overflow: hidden;
     margin: auto;
 
 
@@ -333,7 +334,7 @@ button:hover {
 @media(max-width: 810px) {
 
     .main {
-        height: 150vh;
+        height: 110vh;
         display: flex;
     }
 
@@ -351,7 +352,6 @@ button:hover {
         align-content: center;
         max-width: 100vw;
         overflow: hidden;
-
     }
 
     .main-txt {
@@ -370,6 +370,24 @@ button:hover {
 
     .about img {
         display: none;
+    }
+
+    .about{
+        flex-direction: column;
+    }
+
+    .mobileimg{
+        display: block !important;
+        width: 300px;
+        z-index: 100;
+    }
+
+    .about>a{
+        z-index: 100;
+    }
+
+    .comment{
+        gap: 50px;
     }
 }
 
@@ -398,10 +416,24 @@ button:hover {
 }
 
 @media(max-width: 450px) {
+
+    .main {
+        height: 150vh;
+        display: flex;
+        
+    }
+
+    .main-content {
+        gap: 0px;
+     
+    }
+
+
     .main-img {
         background-position: top;
-        height: 40vh;
-        margin-top: -50px;
+        height: 50vh;
+        /* background-color: orange; */
+        
     }
 
     .main-txt {
@@ -452,6 +484,12 @@ button:hover {
 
     .comment h1{
         font-size: 30px;
+    }
+
+    .mobileimg{
+        display: block !important;
+        width: 250px;
+        z-index: 100;
     }
 
     .wpp{
