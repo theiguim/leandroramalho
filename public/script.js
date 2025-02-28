@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // }
         
         try {
-            const res = await fetch("http://localhost:3001/send-form", {
+            const res = await fetch("/api/send-form", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)

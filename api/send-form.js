@@ -1,12 +1,10 @@
-const express = require("express");
-const cors = require("cors");
 const axios = require("axios");
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+module.exports = async (req, res) => {
+    if (req.method !== "POST") {
+        return res.status(405).json({ error: "Método não permitido" });
+    }
 
-app.post("/send-form", async (req, res) => {
     try {
         const response = await axios.post(
             "https://app.mailingboss.com/lists/67aca1cc3b9dd/subscribe",
@@ -16,9 +14,7 @@ app.post("/send-form", async (req, res) => {
 
         res.json({ success: true, message: "Enviado com sucesso!", data: response.data });
     } catch (err) {
-        console.error("Erro ao enviar formulário:", err.message); // Para depuração
+        console.error("Erro ao enviar formulário:", err.message);
         res.status(500).json({ success: false, error: "Erro ao enviar formulário." });
     }
-});
-
-app.listen(3001, () => console.log("Server is running on port 3001"));
+};
