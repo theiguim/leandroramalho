@@ -188,7 +188,7 @@ button:hover {
 .comment {
     height: auto;
     padding: 100px 0;
-    width: 80vw;
+    width: 100vw;
     overflow: hidden;
     margin: auto;
 
@@ -218,7 +218,7 @@ button:hover {
 
 .wpp {
     height: auto;
-    width: 100%;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -242,6 +242,8 @@ button:hover {
 .about {
     background-color: black;
     display: flex;
+    flex-direction: column;
+    gap: 100px;
     justify-content: center;
     align-items: center;
     align-items: center;
@@ -252,16 +254,23 @@ button:hover {
     background-color: black;
 }
 
-.about-img {
+.mobileimg{
+    display: none;
 
-    display: flex;
-    align-items: end;
-    justify-content: end;
 }
 
-.about-img img {
+.about>a{
+    z-index: 100;
+}
+
+
+.aboutimg {
     width: 200px;
     z-index: 10;
+}
+.about-content{
+display: flex;
+align-items: end;
 }
 
 .about-txt {
@@ -374,15 +383,12 @@ button:hover {
 
     .about{
         flex-direction: column;
+        gap: 0;
     }
 
     .mobileimg{
         display: block !important;
         width: 300px;
-        z-index: 100;
-    }
-
-    .about>a{
         z-index: 100;
     }
 
@@ -412,6 +418,11 @@ button:hover {
         max-width: 85vw;
         text-align: justify;
     }
+
+    a>button{
+        font-size: 17px !important;
+    }
+
 
 }
 
