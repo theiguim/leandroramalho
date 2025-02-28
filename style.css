@@ -8,6 +8,10 @@
     margin: 0;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: black;
     color: white;
@@ -29,13 +33,9 @@ section {
 }
 
 .main {
-
-
     width: 100vw;
     overflow-x: hidden;
-
     position: relative;
-
 }
 
 .background-shadow {
@@ -124,9 +124,11 @@ form input {
 }
 
 input::placeholder {
-    color: black; /* Altere para a cor desejada */
-    opacity: 1; /* Garante que a cor seja aplicada corretamente */
-  }
+    color: black;
+    /* Altere para a cor desejada */
+    opacity: 1;
+    /* Garante que a cor seja aplicada corretamente */
+}
 
 label {
     display: flex;
@@ -182,6 +184,57 @@ button {
 button:hover {
     transform: scale(1.04);
 }
+
+.comment {
+    height: auto;
+    padding: 100px 0;
+    width: 80vw;
+    margin: auto;
+
+
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 150px;
+}
+
+.comment h1 {
+    z-index: 100;
+
+
+    font-family: "evogria";
+    font-size: 40px;
+    font-weight: 100;
+    color: rgb(255, 159, 49);
+    text-shadow:   1px 1px 20px rgba(255, 166, 0, 0.548);
+
+}
+
+.comment a {
+    z-index: 100;
+}
+
+.wpp {
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.wpp img {
+    z-index: 2;
+    width: 300px;
+    transition: .5s;
+    z-index: 100;
+}
+
+.wpp img:hover {
+    transform: scale(1.2);
+}
+
 
 .gallery {
     width: 100vw;
@@ -377,11 +430,18 @@ button:hover {
         background-position: bottom;
     }
 
+    .comment{
+        text-align: center;
+    }
+    .wpp{
+        flex-direction: column;
+    }
+
 
 }
 
 @media (max-width: 965px) {
-   form button {
+    form button {
         font-size: 19px;
     }
 
@@ -443,7 +503,7 @@ button:hover {
         align-items: center;
     }
 
-    .about img{
+    .about img {
         display: none;
     }
 }
@@ -478,6 +538,7 @@ button:hover {
         height: 40vh;
         margin-top: -50px;
     }
+
     .main-txt {
         width: 90vw;
     }
@@ -500,7 +561,7 @@ button:hover {
         width: 350px;
     }
 
-    form label span{
+    form label span {
         font-size: 10px;
         text-align: left;
     }
@@ -508,6 +569,20 @@ button:hover {
     button {
         font-size: 15px;
     }
+
+    .comment {
+       
+        padding:0;
+        padding-bottom: 100px;
+        width: 80vw;
+        margin: auto;
+        gap: 80px;
+    }
+
+    .wpp{
+        gap: 80px;
+    }
+    
 
 }
 

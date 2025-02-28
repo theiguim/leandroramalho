@@ -27,18 +27,33 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     );
 
+    gsap.fromTo(".comment",
+        { x: -200, opacity: 0 }, // Começa fora da tela à esquerda
+        {
+            x: 0, opacity: 1, // Entra na tela
+            scrollTrigger: {
+                trigger: ".comment",
+                start: "top 80%", // Quando 80% do elemento estiver visível
+                end: "top 50%", // Animação ocorre enquanto ele percorre essa faixa
+                scrub: true,
+            }
+        }
+    );
+
+
+
     gsap.from(".gallery", {
         x: "-100%", // Vem da esquerda
         opacity: 0, // Começa invisível
         duration: 1.2, // Tempo da animação
         ease: "power2.out",
         scrollTrigger: {
-          trigger: ".gallery",
-          start: "top 40%", // Inicia quando 80% da tela atinge o topo da section
-          toggleActions: "play reverse play reverse", // Reanima ao entrar e reverte ao sair
+            trigger: ".gallery",
+            start: "top 40%", // Inicia quando 80% da tela atinge o topo da section
+            toggleActions: "play reverse play reverse", // Reanima ao entrar e reverte ao sair
         }
-      });
-    
+    });
+
     gsap.set(".about-txt h1", { opacity: 0, x: -100 });
     gsap.set(".line", { scaleX: 0, transformOrigin: "left center" });
     gsap.set(".about-txt p", { opacity: 0, y: 30 });
