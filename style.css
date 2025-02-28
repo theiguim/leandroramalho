@@ -345,7 +345,7 @@ button:hover {
 
     .main-content {
         width: 100%;
-        flex-direction: column-reverse;
+        flex-direction: column;
         justify-content: start;
         align-items: center;
         align-content: center;
