@@ -406,6 +406,7 @@ button:hover {
 
     .main-txt {
         width: 90vw;
+        min-width: 80vw !important;
     }
 
     .main-txt h2 {}
@@ -432,8 +433,13 @@ button:hover {
     }
 
     button {
-        font-size: 15px;
+        font-size: 18px !important;
     }
+
+    a>button{
+        font-size: 15px !important;
+    }
+
 
     .comment {
        
@@ -442,6 +448,10 @@ button:hover {
         width: 80vw;
         margin: auto;
         gap: 80px;
+    }
+
+    .comment h1{
+        font-size: 30px;
     }
 
     .wpp{
@@ -459,6 +469,15 @@ button:hover {
     .color2 {
         font-size: 27px;
     }
+
+    button {
+        font-size: 15px !important;
+    }
+
+    a>button{
+        font-size: 12px !important;
+    }
+   
 }
 
 
