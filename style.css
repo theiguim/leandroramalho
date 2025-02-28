@@ -229,10 +229,13 @@ button:hover {
     width: 300px;
     transition: .5s;
     z-index: 100;
+
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px 10px #0b39571a;
 }
 
 .wpp img:hover {
-    transform: scale(1.2);
+    transform: scale(1.05);
 }
 
 
