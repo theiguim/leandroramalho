@@ -77,7 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
             phone = `+55${phone}`;
         } else {
             console.error("Número inválido!");
+            return
         }
+
+        console.log("Número formatado:", phone);
 
         try {
             const response = await fetch("/api/manychat", {
