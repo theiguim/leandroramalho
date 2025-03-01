@@ -1,4 +1,4 @@
-const API_TOKEN = process.env.MANYCHAT_API_TOKEN;
+const API_TOKEN = "2489155:2716:51925ad64eb9c3bf510d3aa3beb87fe2061f7cc9"
 
 const createSubscriber = async (phone, name) => {
     try {
