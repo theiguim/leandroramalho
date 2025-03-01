@@ -30,11 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
     gsap.fromTo(".comment",
         { x: -200, opacity: 0 },
         {
-            x: 0, opacity: 1, 
+            x: 0, opacity: 1,
             scrollTrigger: {
                 trigger: ".comment",
                 start: "top 80%",
-                end: "top 50%", 
+                end: "top 50%",
                 scrub: true,
             }
         }
@@ -55,34 +55,43 @@ document.addEventListener("DOMContentLoaded", function () {
         .to(".line", { scaleX: 1, duration: 1, ease: "power2.out" }, "-=0.5")
         .to(".about-txt p", { opacity: 1, y: 0, duration: 0.8, stagger: 0.3 }, "-=0.3");
 
+
+
     const form = document.getElementById("my-form");
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        alert("clicou")
-
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
 
         const name = data.FNAME
-        const phone = data.PHONE
+        let phone = data.PHONE.replace(/\D/g, "")
 
-        // integração com MANYCHAT
-        // **FAVOR VALIDAR DADOS +55
-        // try {
-        //     const response = await fetch("http://localhost:3000/webhook", {
-        //         method: "POST",
-        //         headers: { "Content-Type": "application/json" },
-        //         body: JSON.stringify({ name, phone }),
-        //     });
+        if (!name || !phone) {
+            console.error("Nome ou telefone não informados!");
+            return;
+        }
 
-        //     const data = await response.json();
-        //     alert(data.message);
-        // } catch (error) {
-        //     console.error("Erro ao enviar formulário:", error);
-        // }
-        
+        if (phone.length === 11) {
+            phone = `+55${phone}`;
+        } else {
+            console.error("Número inválido!");
+        }
+
+        try {
+            const response = await fetch("/api/manychat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, phone }),
+            });
+
+            const result = await response.json();
+            console.log(result.message)
+        } catch (error) {
+            console.error("Erro ao enviar formulário:", error);
+        }
+
         try {
             const res = await fetch("/api/send-form", {
                 method: "POST",
@@ -91,10 +100,10 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             if (res.ok) {
-                alert("Formulário enviado com sucesso!");
+                console.log("Formulário enviado com sucesso!");
                 window.location.href = "wpp.html";
             } else {
-                alert("Erro ao enviar formulário");
+                console.log("Erro ao enviar formulário");
             }
         } catch (err) {
             console.error("Erro:", err);
