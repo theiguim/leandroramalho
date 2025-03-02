@@ -529,12 +529,17 @@ align-items: end;
    
 }
 
-
+#wpp-content{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
 #main-wpp {
     margin: auto;
     width: 500px;
     text-align: center;
     align-items: center;
+    overflow: hidden;
 }
 
 #main-wpp p {
@@ -543,4 +548,13 @@ align-items: end;
 
 #main-wpp a {
     color: white;
+}
+
+
+/* 490 */
+@media(max-width: 490px){
+    body{}
+    #main-wpp {
+        width: 95vw;
+    }
 }
