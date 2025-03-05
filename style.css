@@ -144,6 +144,15 @@ label>span {
     font-size: 13px;
 }
 
+#logo{
+
+width: 200px;
+margin: auto;
+margin-right: 0;
+margin-top: 0;
+
+}
+
 .main-img {
     min-width: 600px;
     /* Largura fixa */
@@ -161,6 +170,8 @@ label>span {
     background-repeat: no-repeat;
 
     overflow-x: hidden;
+
+    position: relative;
 }
 
 
@@ -341,6 +352,10 @@ align-items: end;
 }
 
 @media(max-width: 810px) {
+
+    #logo{
+        display: none;
+    }
 
     .main {
         height: 110vh;
