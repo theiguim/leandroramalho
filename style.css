@@ -10,6 +10,8 @@
 
 html{
     scroll-behavior: smooth;
+    width: 100vw;
+    overflow-x: hidden ;
 }
 
 body {
@@ -18,7 +20,7 @@ body {
     font-family: sans-serif;
 
     width: 100vw;
-    overflow-x: hidden;
+   
 
     background: linear-gradient(to right, #0b3957c7, #0b3957a8),
         url('images/background.jpg') no-repeat center/cover;
@@ -61,7 +63,7 @@ section {
 }
 
 .main-txt {
-    width: 600px;
+    width: 500px;
     margin-left: 5vw;
 
     display: flex;
@@ -76,6 +78,7 @@ section {
 
 .main-txt h2 {
     font-weight: 400;
+    font-size: 20px;
 }
 
 .main-txt h1 {
